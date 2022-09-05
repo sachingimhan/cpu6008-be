@@ -24,7 +24,7 @@ public class DriverController {
     @Autowired
     DriverService service;
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping("/")
     public ResponseEntity<?> saveDriver(@RequestBody DriverDTO dto) {
         boolean b = service.saveDriver(dto);
         if (b) {
@@ -35,7 +35,7 @@ public class DriverController {
 
     }
 
-    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PutMapping("/")
     public ResponseEntity<?> updateDriver(@RequestBody DriverDTO dto) {
         boolean b = service.updateDriver(dto);
         if (b) {
@@ -65,7 +65,7 @@ public class DriverController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<?> getAllCars() {
         List<DriverDTO> allDrivers = service.getAllDrivers();
         if (allDrivers.size() > 0) {
