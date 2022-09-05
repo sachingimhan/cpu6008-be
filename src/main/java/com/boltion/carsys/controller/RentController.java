@@ -27,7 +27,7 @@ public class RentController {
         this.rentService = rentService;
     }
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping("/")
     public ResponseEntity<?> saveCar(@RequestBody RentDTO dto) {
         boolean b = rentService.saveRent(dto);
         if (b) {
@@ -38,7 +38,7 @@ public class RentController {
 
     }
 
-    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PutMapping("/update")
     public ResponseEntity<?> updateCar(@RequestBody RentDTO dto) {
         boolean b = rentService.updateRent(dto);
         if (b) {
@@ -68,7 +68,7 @@ public class RentController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<?> getAllCars() {
         List<RentDTO> allRents = rentService.getAllRents();
         if (allRents != null) {
@@ -78,7 +78,7 @@ public class RentController {
         }
     }
 
-    @PutMapping(params = {"reqId", "state", "reason"})
+    @PutMapping("/status/change")
     public ResponseEntity<?> changeRequestState(@RequestParam("reqId") String reqId, @RequestParam("state") String state, @RequestParam("reason") String reason) {
         boolean b = rentService.requestStateChange(reqId, state, reason);
         if (b) {
