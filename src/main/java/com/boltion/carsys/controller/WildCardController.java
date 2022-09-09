@@ -16,6 +16,6 @@ public class WildCardController {
 
     @RequestMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity wildcard(){
-        return ResponseEntity.status(HttpStatus.OK).body("API Server is UP and Running.!");
+        return ResponseEntity.status(HttpStatus.OK).body("API Server UP and Running.!");
     }
 }
