@@ -1,4 +1,4 @@
-package com.boltion.carsys.service;
+package com.boltion.carsys.services;
 
 import com.boltion.carsys.dto.RentDTO;
 
