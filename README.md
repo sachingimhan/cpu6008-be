@@ -21,4 +21,6 @@ https://www.getpostman.com/collections/2d6f3653a086ce116017
 
 <br/>
 
+Server endpoint : https://carsys.azurewebsites.net/
+
 ###### © 2022 Car Rental Managment System ~BOLTON GP1~
