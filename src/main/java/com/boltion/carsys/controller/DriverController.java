@@ -5,7 +5,6 @@ import com.boltion.carsys.service.DriverService;
 import com.boltion.carsys.util.StrandedResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +27,9 @@ public class DriverController {
     public ResponseEntity<?> saveDriver(@RequestBody DriverDTO dto) {
         boolean b = service.saveDriver(dto);
         if (b) {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Saved.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Saved.!", ""), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Saved.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Saved.!", ""), HttpStatus.OK);
         }
 
     }
@@ -39,9 +38,9 @@ public class DriverController {
     public ResponseEntity<?> updateDriver(@RequestBody DriverDTO dto) {
         boolean b = service.updateDriver(dto);
         if (b) {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Updated.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Updated.!", ""), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Updated.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Updated.!", ""), HttpStatus.OK);
         }
     }
 
@@ -49,9 +48,9 @@ public class DriverController {
     public ResponseEntity<?> deleteCar(@RequestParam("id") String id) {
         boolean b = service.deleteDriver(id);
         if (b) {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Deleted.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Deleted.!", ""), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Deleted.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(b, "Driver Not Deleted.!", ""), HttpStatus.OK);
         }
     }
 
@@ -61,7 +60,7 @@ public class DriverController {
         if (driverDTO != null) {
             return new ResponseEntity<>(new StrandedResponse(true, "Driver Found.!", driverDTO), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new StrandedResponse(false, "Driver Not Found.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(false, "Driver Not Found.!", ""), HttpStatus.OK);
         }
     }
 
@@ -71,7 +70,7 @@ public class DriverController {
         if (allDrivers.size() > 0) {
             return new ResponseEntity<>(new StrandedResponse(true, "Driver Found.!", allDrivers), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new StrandedResponse(false, "Driver Not Found.!"), HttpStatus.OK);
+            return new ResponseEntity<>(new StrandedResponse(false, "Driver Not Found.!", ""), HttpStatus.OK);
         }
     }
 
@@ -82,7 +81,7 @@ public class DriverController {
         if (driverDTOS.size() > 0) {
             return new ResponseEntity<>(new StrandedResponse(true, "Found", driverDTOS), HttpStatus.OK);
         }
-        return new ResponseEntity<>(new StrandedResponse(false, "Not Found"), HttpStatus.OK);
+        return new ResponseEntity<>(new StrandedResponse(false, "Not Found", ""), HttpStatus.OK);
     }
 
 }
