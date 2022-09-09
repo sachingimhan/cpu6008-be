@@ -1,12 +1,16 @@
 package com.boltion.carsys.services.impl;
 
-import com.azure.storage.blob.BlobServiceClient;
 import com.boltion.carsys.services.FilesStorageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 /**
@@ -16,8 +20,6 @@ import java.util.stream.Stream;
 @Service
 public class FilesStorageServiceImpl implements FilesStorageService {
 
-    @Autowired
-    private BlobServiceClient client;
 
     @Override
     public void init() {
@@ -26,19 +28,14 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
     @Override
     public void save(MultipartFile file, String id, String rootPath) {
-        try {
-
-        }
     }
 
     @Override
     public void load(String filename, String rootPath) {
-
     }
 
     @Override
     public void deleteAll() {
-
     }
 
     @Override

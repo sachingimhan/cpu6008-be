@@ -31,9 +31,9 @@ public class UserController {
     public ResponseEntity registration(@RequestBody UserLoginDTO dto) {
         boolean registration = service.registration(dto);
         if (registration) {
-            return new ResponseEntity(new StrandedResponse(true, "Registration Success.!"), HttpStatus.OK);
+            return new ResponseEntity(new StrandedResponse(true, "Registration Success.!",""), HttpStatus.OK);
         }
-        return new ResponseEntity(new StrandedResponse(false, "Registration Fail.!"), HttpStatus.OK);
+        return new ResponseEntity(new StrandedResponse(false, "Registration Fail.!",""), HttpStatus.OK);
     }
 
     @PostMapping(path = "/upload")
@@ -42,7 +42,7 @@ public class UserController {
         for (MultipartFile file : files) {
             storageService.save(file, id, rootPath);
         }
-        return new ResponseEntity(new StrandedResponse(true, "Success.!"), HttpStatus.OK);
+        return new ResponseEntity(new StrandedResponse(true, "Success.!",""), HttpStatus.OK);
     }
 
     @GetMapping(path = "/load")
@@ -52,7 +52,7 @@ public class UserController {
         System.out.println(s);
         storageService.load("153698572V", rootPath);
 
-        return new ResponseEntity(new StrandedResponse(true, "Success.!"), HttpStatus.OK);
+        return new ResponseEntity(new StrandedResponse(true, "Success.!",""), HttpStatus.OK);
     }
 
     @GetMapping(params = {"email", "password"})
@@ -66,9 +66,9 @@ public class UserController {
     public ResponseEntity updateUser(@RequestBody UserLoginDTO dto) {
         boolean b = service.updateUserDetails(dto);
         if (b) {
-            return new ResponseEntity(new StrandedResponse(true, "Update Success.!"), HttpStatus.OK);
+            return new ResponseEntity(new StrandedResponse(true, "Update Success.!",""), HttpStatus.OK);
         }
-        return new ResponseEntity(new StrandedResponse(false, "Update Fail.!"), HttpStatus.OK);
+        return new ResponseEntity(new StrandedResponse(false, "Update Fail.!",""), HttpStatus.OK);
     }
 
 }

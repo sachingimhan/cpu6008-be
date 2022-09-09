@@ -1,9 +1,9 @@
-package com.boltion.carsys.service.impl;
+package com.boltion.carsys.services.impl;
 
 import com.boltion.carsys.dto.CarDTO;
 import com.boltion.carsys.entity.Car;
 import com.boltion.carsys.repo.CarRepo;
-import com.boltion.carsys.service.CarService;
+import com.boltion.carsys.services.CarService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
