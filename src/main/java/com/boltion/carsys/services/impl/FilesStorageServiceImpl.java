@@ -28,17 +28,14 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
     @Override
     public void save(MultipartFile file, String id, String rootPath) {
-
     }
 
     @Override
     public void load(String filename, String rootPath) {
-
     }
 
     @Override
     public void deleteAll() {
-
     }
 
     @Override
