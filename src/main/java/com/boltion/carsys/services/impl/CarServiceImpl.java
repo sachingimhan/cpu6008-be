@@ -1,15 +1,13 @@
-package com.boltion.carsys.service.impl;
+package com.boltion.carsys.services.impl;
 
-import com.boltion.carsys.dto.CarDTO;
-import com.boltion.carsys.entity.Car;
-import com.boltion.carsys.repo.CarRepo;
-import com.boltion.carsys.service.CarService;
+import com.boltion.carsys.dto.CustomerDTO;
+import com.boltion.carsys.dto.DriverDTO;
+import com.boltion.carsys.entity.Driver;
+import com.boltion.carsys.repo.DriverRepo;
+import com.boltion.carsys.service.DriverService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -24,49 +22,43 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class CarServiceImpl implements CarService {
-
-    private CarRepo repo;
-    private ModelMapper mapper;
-
+public class DriverServiceImpl implements DriverService {
     @Autowired
-    public CarServiceImpl(CarRepo repo, ModelMapper mapper) {
-        this.repo = repo;
-        this.mapper = mapper;
-    }
+    DriverRepo repo;
+    @Autowired
+    ModelMapper mapper;
 
     @Override
-    public boolean saveCar(CarDTO dto) {
-        if (!repo.existsById(dto.getRegNo())) {
-            dto.setStates("active");
-            repo.save(mapper.map(dto, Car.class));
+    public boolean saveDriver(DriverDTO dto) {
+        if (!repo.existsById(dto.getNic())) {
+            repo.save(mapper.map(dto, Driver.class));
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean updateCar(CarDTO dto) {
-        if (repo.existsById(dto.getRegNo())) {
-            repo.save(mapper.map(dto, Car.class));
+    public boolean updateDriver(DriverDTO dto) {
+        if (repo.existsById(dto.getNic())) {
+            repo.save(mapper.map(dto, Driver.class));
             return true;
         }
         return false;
     }
 
     @Override
-    public CarDTO searchCar(String id) {
+    public DriverDTO searchDriver(String id) {
         if (id != null) {
-            Optional<Car> car = repo.findById(id);
-            if (car.isPresent()) {
-                return mapper.map(car.get(), CarDTO.class);
+            Optional<Driver> driver = repo.findById(id);
+            if (driver.isPresent()) {
+                return mapper.map(driver.get(), DriverDTO.class);
             }
         }
         return null;
     }
 
     @Override
-    public boolean deleteCar(String id) {
+    public boolean deleteDriver(String id) {
         if (repo.existsById(id)) {
             repo.deleteById(id);
             return true;
@@ -75,30 +67,20 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CarDTO> getAllCars() {
-        List<Car> all = repo.findAll();
+    public List<DriverDTO> getAllDrivers() {
+        List<Driver> all = repo.findAll();
         if (all.size() > 0) {
-            return mapper.map(all, new TypeToken<List<CarDTO>>() {
+            return mapper.map(all, new TypeToken<List<CustomerDTO>>() {
             }.getType());
         }
         return null;
     }
 
     @Override
-    public Page<CarDTO> getAllCars(int page, int size) {
-        Pageable req = PageRequest.of(page - 1, size);
-        Page<Car> all = repo.findAll(req);
-        return mapper.map(all, new TypeToken<Page<CarDTO>>() {
+    public List<DriverDTO> searchAvailableDrivers(Date from, Date to) {
+        List<Driver> drivers = repo.searchAvailableDrivers(from, to);
+        System.out.println(drivers.size());
+        return mapper.map(drivers, new TypeToken<List<DriverDTO>>() {
         }.getType());
-    }
-
-    @Override
-    public List<CarDTO> getCars(Date from, Date to, String type) {
-        List<Car> cars = repo.searchCar(from, to, type);
-        if (cars.size() > 0) {
-            return mapper.map(cars, new TypeToken<List<CarDTO>>() {
-            }.getType());
-        }
-        return null;
     }
 }
