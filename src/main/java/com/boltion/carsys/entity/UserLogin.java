@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class UserLogin {
     @Id
-    private String id;
+    private int id;
     private String email;
     private String password;
     private String role;

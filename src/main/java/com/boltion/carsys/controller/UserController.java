@@ -4,6 +4,7 @@ import com.boltion.carsys.dto.UserLoginDTO;
 import com.boltion.carsys.services.FilesStorageService;
 import com.boltion.carsys.services.UserService;
 import com.boltion.carsys.util.StrandedResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @auther sachin
@@ -22,7 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 @CrossOrigin
 public class UserController {
 
+    @Autowired
     private UserService service;
+    @Autowired
     private FilesStorageService storageService;
 
     @PostMapping

@@ -1,7 +1,6 @@
 package com.boltion.carsys.services.impl;
 
 import com.boltion.carsys.dto.UserLoginDTO;
-import com.boltion.carsys.entity.Customer;
 import com.boltion.carsys.entity.UserLogin;
 import com.boltion.carsys.repo.CustomerRepo;
 import com.boltion.carsys.repo.UserLoginRepo;
@@ -28,10 +27,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean registration(UserLoginDTO dto) {
-        if (!repo.existsByEmail(dto.getEmail())) {
+        if (!repo.findByEmail(dto.getEmail()).isPresent()) {
             dto.setRole("User");
             repo.save(mapper.map(dto, UserLogin.class));
-            customerRepo.save(mapper.map(dto.getCustomer(), Customer.class));
+//            customerRepo.save(mapper.map(dto.getCustomer(), Customer.class));
             return true;
         }
         return false;
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserLoginDTO userLogin(String email, String password) {
-        if (repo.existsByEmail(email)) {
+        if (repo.findByEmail(email).isPresent()) {
             UserLogin user = repo.checkLogin(email, password);
             if (user != null) {
                 return mapper.map(user, UserLoginDTO.class);
@@ -53,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateUserDetails(UserLoginDTO dto) {
-        if (repo.existsByEmail(dto.getEmail())) {
+        if (repo.findByEmail(dto.getEmail()).isPresent()) {
             repo.save(mapper.map(dto, UserLogin.class));
             return true;
         }

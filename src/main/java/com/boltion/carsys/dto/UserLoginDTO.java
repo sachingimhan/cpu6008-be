@@ -1,5 +1,6 @@
 package com.boltion.carsys.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 /**
@@ -12,14 +13,14 @@ import lombok.*;
 @Setter
 @ToString
 public class UserLoginDTO {
-    private String id;
+    private int id;
     private String email;
     private String password;
     private String role;
     private CustomerDTO customer;
     private DriverDTO driver;
 
-    public UserLoginDTO(String id, String email, String password, String role, CustomerDTO customer) {
+    public UserLoginDTO(int id, String email, String password, String role, CustomerDTO customer) {
         this.id = id;
         this.email = email;
         this.password = password;
