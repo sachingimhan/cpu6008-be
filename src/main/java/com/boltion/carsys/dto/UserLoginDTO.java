@@ -6,8 +6,6 @@ import lombok.*;
  * @auther sachin
  * @date 2022-09-05
  */
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString

@@ -1,7 +1,7 @@
 package com.boltion.carsys.controller;
 
 import com.boltion.carsys.dto.DriverDTO;
-import com.boltion.carsys.service.DriverService;
+import com.boltion.carsys.services.DriverService;
 import com.boltion.carsys.util.StrandedResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +20,7 @@ import java.util.List;
 @RequestMapping("/api/v1/driver")
 @CrossOrigin
 public class DriverController {
+
     @Autowired
     DriverService service;
 

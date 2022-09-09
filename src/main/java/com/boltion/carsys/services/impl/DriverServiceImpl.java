@@ -4,7 +4,7 @@ import com.boltion.carsys.dto.CustomerDTO;
 import com.boltion.carsys.dto.DriverDTO;
 import com.boltion.carsys.entity.Driver;
 import com.boltion.carsys.repo.DriverRepo;
-import com.boltion.carsys.service.DriverService;
+import com.boltion.carsys.services.DriverService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,7 +5,7 @@ import com.boltion.carsys.entity.Rent;
 import com.boltion.carsys.repo.CarRepo;
 import com.boltion.carsys.repo.DriverRepo;
 import com.boltion.carsys.repo.RentRepo;
-import com.boltion.carsys.service.RentService;
+import com.boltion.carsys.services.RentService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
