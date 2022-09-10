@@ -1,5 +1,6 @@
 package com.boltion.carsys.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 /**
@@ -9,6 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserLoginDTO {
     private String id;
     private String email;

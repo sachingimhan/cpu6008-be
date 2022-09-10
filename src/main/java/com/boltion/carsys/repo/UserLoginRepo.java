@@ -17,6 +17,6 @@ public interface UserLoginRepo extends JpaRepository<UserLogin,String> {
 
     Optional<UserLogin> findByEmail(String email);
 
-    @Query(value = "SELECT * FROM userlogin WHERE email=:email AND password=:pass", nativeQuery = true)
+    @Query(value = "SELECT * FROM user_login WHERE email=:email AND password=:pass ", nativeQuery = true)
     UserLogin checkLogin(@Param("email") String email, @Param("pass") String password);
 }
