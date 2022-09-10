@@ -29,7 +29,7 @@ public class CarController {
         this.carService = carService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> saveCar(@RequestBody CarDTO dto) {
         boolean b = carService.saveCar(dto);
         if (b) {
@@ -40,7 +40,7 @@ public class CarController {
 
     }
 
-    @PutMapping("/")
+    @PutMapping
     public ResponseEntity<?> updateCar(@RequestBody CarDTO dto) {
         boolean b = carService.updateCar(dto);
         if (b) {

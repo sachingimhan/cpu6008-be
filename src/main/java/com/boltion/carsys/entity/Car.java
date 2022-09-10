@@ -1,10 +1,7 @@
 package com.boltion.carsys.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -18,6 +15,7 @@ import java.util.List;
  */
 
 @Entity
+@Data
 public class Car {
     @Id
     private String regNo;
@@ -39,6 +37,9 @@ public class Car {
     @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Rent> rentList;
+
+    public Car() {
+    }
 
     public Car(String regNo, String brand, String type, int passengerCount, String color, String transmissionType, String fuelType, double waiverAmount, double dailyRate, double monthlyRate, double extraKmPrice, double dailyFreeKm, String states, double monthlyFreeKm, double drivenKm) {
         this.regNo = regNo;
