@@ -24,7 +24,7 @@ public class DriverController {
     @Autowired
     DriverService service;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> saveDriver(@RequestBody DriverDTO dto) {
         boolean b = service.saveDriver(dto);
         if (b) {
@@ -35,7 +35,7 @@ public class DriverController {
 
     }
 
-    @PutMapping("/")
+    @PutMapping
     public ResponseEntity<?> updateDriver(@RequestBody DriverDTO dto) {
         boolean b = service.updateDriver(dto);
         if (b) {

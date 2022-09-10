@@ -14,6 +14,6 @@ import java.util.List;
  */
 
 public interface CarRepo extends JpaRepository<Car, String> {
-    @Query(value = "SELECT * FROM car WHERE regNo NOT IN (SELECT RegNo FROM rent WHERE (:pikupDate BETWEEN fromDate AND toDate AND :returnDate BETWEEN fromDate AND toDate)) AND type=:cType AND states='active'", nativeQuery = true)
-    List<Car> searchCar(@Param("pikupDate") Date pikupDate, @Param("returnDate") Date returnDate, @Param("cType") String cType);
+    @Query(value = "SELECT * FROM car WHERE reg_no NOT IN (SELECT rent.reg_no FROM rent WHERE (:pikupDate BETWEEN from_date AND to_date AND :returnDate BETWEEN from_date AND to_date)) AND states='active'", nativeQuery = true)
+    List<Car> searchCar(@Param("pikupDate") Date pikupDate, @Param("returnDate") Date returnDate);
 }

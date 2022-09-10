@@ -94,7 +94,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<CarDTO> getCars(Date from, Date to, String type) {
-        List<Car> cars = repo.searchCar(from, to, type);
+        List<Car> cars = repo.searchCar(from, to);
         if (cars.size() > 0) {
             return mapper.map(cars, new TypeToken<List<CarDTO>>() {
             }.getType());
