@@ -26,7 +26,7 @@ public class RentController {
         this.rentService = rentService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> saveCar(@RequestBody RentDTO dto) {
         boolean b = rentService.saveRent(dto);
         if (b) {
@@ -37,7 +37,7 @@ public class RentController {
 
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<?> updateCar(@RequestBody RentDTO dto) {
         boolean b = rentService.updateRent(dto);
         if (b) {

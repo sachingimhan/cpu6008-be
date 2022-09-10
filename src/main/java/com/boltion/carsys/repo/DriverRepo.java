@@ -14,6 +14,6 @@ import java.util.List;
  */
 
 public interface DriverRepo extends JpaRepository<Driver, String> {
-    @Query(value = "SELECT * FROM driver WHERE nic NOT IN (SELECT DrId FROM rent WHERE (:pikupDate BETWEEN fromDate AND toDate AND :returnDate BETWEEN fromDate AND toDate))", nativeQuery = true)
+    @Query(value = "SELECT * FROM driver WHERE nic NOT IN (SELECT dr_id FROM rent WHERE (:pikupDate BETWEEN from_date AND to_date AND :returnDate BETWEEN from_date AND to_date))", nativeQuery = true)
     List<Driver> searchAvailableDrivers(@Param("pikupDate") Date pikupDate, @Param("returnDate") Date returnDate);
 }

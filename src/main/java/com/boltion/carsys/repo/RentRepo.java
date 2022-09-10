@@ -13,9 +13,9 @@ import java.util.List;
  */
 
 public interface RentRepo extends JpaRepository<Rent, Integer> {
-    @Query(value = "SELECT * FROM rent WHERE CustNic=:nic", nativeQuery = true)
+    @Query(value = "SELECT * FROM rent WHERE cust_nic=:nic ", nativeQuery = true)
     List<Rent> getAllRequestFromCustomer(@Param("nic") String nic);
 
-    @Query(value = "UPDATE rent SET state=:val2, reason=:val3 WHERE reqId=:val1 ", nativeQuery = true)
+    @Query(value = "UPDATE rent SET state=:val2, reason=:val3 WHERE req_id=:val1 ", nativeQuery = true)
     void changeRequestState(@Param("val1") String req, @Param("val2") String state, @Param("val3") String reason);
 }

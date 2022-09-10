@@ -15,6 +15,6 @@ public class WildCardController {
 
     @RequestMapping
     public String wildcard() {
-        return "Server is UP and Running! V 1.0.4";
+        return "Server is UP and Running! V 1.0.5";
     }
 }
