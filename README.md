@@ -27,4 +27,4 @@ https://www.getpostman.com/collections/2d6f3653a086ce116017
 Web Application : https://uncommoncarrents.000webhostapp.com/ <br/>
 BE Base URL : https://carsys.azurewebsites.net/ <br/>
 
-###### © 2022 Car Rental Managment System ~BOLTON GP1~
+###### © 2022 Uncommon car rents ~BOLTON GP1~
