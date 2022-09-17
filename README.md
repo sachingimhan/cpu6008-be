@@ -1,8 +1,11 @@
 # Car Rental Managment System
 Backend project develop for a car rental managment system using Spring boot -Java
 
-### Language & framework stack
-Java , Spring boot , MariaDB  
+### Languages & framework stack
+Java , Spring boot 
+
+### Database storage
+azure cloud DB 
 
 ### Steps to run
 1. `Clone project from git reposiory`<br/>
@@ -21,7 +24,7 @@ https://www.getpostman.com/collections/2d6f3653a086ce116017
 
 <br/>
 
-FE Web: https://uncommoncarrents.000webhostapp.com/
-BE API endpoint : https://carsys.azurewebsites.net/
+FE Web: https://uncommoncarrents.000webhostapp.com/ <br/>
+BE API endpoint : https://carsys.azurewebsites.net/ <br/>
 
 ###### © 2022 Car Rental Managment System ~BOLTON GP1~
