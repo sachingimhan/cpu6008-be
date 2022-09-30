@@ -1,6 +1,7 @@
 package com.boltion.carsys.services.impl;
 
 import com.boltion.carsys.dto.UserLoginDTO;
+import com.boltion.carsys.entity.Customer;
 import com.boltion.carsys.entity.UserLogin;
 import com.boltion.carsys.repo.CustomerRepo;
 import com.boltion.carsys.repo.UserLoginRepo;
@@ -30,10 +31,11 @@ public class UserServiceImpl implements UserService {
         if (!repo.findByEmail(dto.getEmail()).isPresent()) {
             dto.setRole("User");
             repo.save(mapper.map(dto, UserLogin.class));
-//            customerRepo.save(mapper.map(dto.getCustomer(), Customer.class));
+            customerRepo.save(mapper.map(dto.getCustomer(), Customer.class));
             return true;
+        }else {
+            throw new RuntimeException("User Already exist.!");
         }
-        return false;
     }
 
     @Override
