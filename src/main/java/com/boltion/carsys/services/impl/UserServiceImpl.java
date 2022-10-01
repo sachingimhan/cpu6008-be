@@ -30,8 +30,11 @@ public class UserServiceImpl implements UserService {
     public boolean registration(UserLoginDTO dto) {
         if (!repo.findByEmail(dto.getEmail()).isPresent()) {
             dto.setRole("User");
-            repo.save(mapper.map(dto, UserLogin.class));
-            customerRepo.save(mapper.map(dto.getCustomer(), Customer.class));
+            UserLogin login = mapper.map(dto, UserLogin.class);
+            repo.save(login);
+            Customer customer = mapper.map(dto.getCustomer(), Customer.class);
+            customer.setLoginId(login.getId());
+            customerRepo.save(customer);
             return true;
         }else {
             throw new RuntimeException("User Already exist.!");

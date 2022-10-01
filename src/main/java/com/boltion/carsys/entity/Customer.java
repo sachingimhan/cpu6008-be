@@ -2,8 +2,7 @@ package com.boltion.carsys.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @auther sachin
@@ -23,5 +22,7 @@ public class Customer {
     private String address;
     private String contact;
     private String drivingLicNo;
+    @Column(name = "login_id")
+    private int loginId;
 
 }

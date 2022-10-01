@@ -2,8 +2,7 @@ package com.boltion.carsys.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @auther sachin
@@ -17,6 +16,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class UserLogin {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String email;
     private String password;
